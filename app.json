@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Workout_tracker",
+    "slug": "Workout_tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "Workout Tracker",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "", // splash image 
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
