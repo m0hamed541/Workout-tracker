@@ -1,12 +1,15 @@
-import { useEffect } from "react";
-import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { Stack } from "expo-router";
+import { SafeAreaView } from "react-native";
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-    </Stack>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+      </Stack>
+      <StatusBar style="auto" />
+    </SafeAreaView>
   );
 };
 
