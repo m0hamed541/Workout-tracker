@@ -9,7 +9,18 @@ A simple mobile application for logging workouts and tracking progress, inspired
 3. Custom Workouts
 
 ### Screens
-- home
+- homes
 - dashboard
 - exercices
 - routines
+
+
+
+
+
+--
+## dependencies
+#### [heatmap](https://www.npmjs.com/package/@ncuhomeclub/react-native-heatmap)
+npm install @ncuhomeclub/react-native-heatmap
+
+#### [Charts JS](https://www.chartjs.org/docs/latest/)
