@@ -18,7 +18,24 @@ const TabIcon = ({ icon, color }) => {
 const TabsLayout = () => {
   return (
     <SafeAreaView className="flex-1">
-      <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: "#1C8EF7",
+          tabBarInactiveTintColor: "#757575",
+          tabBarStyle: {
+            backgroundColor: "#080808",
+            borderTopWidth: 0,
+            elevation: 0,
+            height: 60,
+            paddingBottom: 8,
+            paddingTop: 8,
+          },
+          tabBarLabelStyle: {
+            fontFamily: "Poppins-Medium",
+            fontSize: 12,
+          },
+        }}
+      >
         <Tabs.Screen
           name="home"
           options={{
