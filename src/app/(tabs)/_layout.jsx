@@ -1,8 +1,10 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Alert, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
-import { Stack, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import icons from "../../../constants/icons";
+import FloatingButton from "../../components/floatingButton";
+import addWorkout from "../global/addWorkout";
 
 const TabIcon = ({ icon, color }) => {
   return (
@@ -87,6 +89,7 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
+      <FloatingButton onPress={addWorkout} icon={icons.add} />
     </SafeAreaView>
   );
 };

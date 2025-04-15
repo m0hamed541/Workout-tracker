@@ -1,6 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import HeaderBar from "../../components/header";
+import FloatingButton from "../../components/floatingButton";
 
 const homeScreen = () => {
   return (
