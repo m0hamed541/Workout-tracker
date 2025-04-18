@@ -6,6 +6,8 @@ import icons from "../../../constants/icons";
 import FloatingButton from "../../components/floatingButton";
 import addWorkout from "../global/addWorkout";
 
+import { useRouter } from "expo-router";
+
 const TabIcon = ({ icon, color }) => {
   return (
     <Image
@@ -18,6 +20,7 @@ const TabIcon = ({ icon, color }) => {
 };
 
 const TabsLayout = () => {
+  const router = useRouter();
   return (
     <SafeAreaView className="flex-1">
       <Tabs
@@ -89,7 +92,10 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-      <FloatingButton onPress={addWorkout} icon={icons.add} />
+      <FloatingButton
+        onPress={() => router.push("../screens/WorkoutScreen")}
+        icon={icons.add}
+      />
     </SafeAreaView>
   );
 };

@@ -4,7 +4,6 @@ import HeaderBar from "../../components/header";
 import Block from "../../components/block";
 
 const homeScreen = () => {
-  // Array of block data
   const blockData = [
     { title: "Daily Steps", value: "3691/10000" },
     { title: "Days working out", value: "12/22" },

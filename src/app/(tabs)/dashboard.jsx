@@ -6,7 +6,6 @@ const dashboard = () => {
   return (
     <ScrollView className="flex-1 bg-gray-dark">
       <HeaderBar title="Dashboard" />
-      <Text className="text-blue px-4 py-2">Dashboard</Text>
     </ScrollView>
   );
 };
