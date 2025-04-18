@@ -2,7 +2,6 @@ import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import HeaderBar from "../../components/header";
 import Block from "../../components/block";
-import Block from "../../components/block";
 
 const homeScreen = () => {
   const blockData = [
@@ -18,29 +17,7 @@ const homeScreen = () => {
 
   return (
     <>
-      <>
-        <HeaderBar title="Home" />
-        <ScrollView className="flex-1 bg-gray-dark">
-          {/* Greeting section */}
-          <View className="px-4 py-4">
-            <Text className="text-white text-xl font-bold">Good Evening,</Text>
-            <Text className="text-gray-400 text-lg">Welcome Mohamed!</Text>
-          </View>
-
-          {/* Blocks grid */}
-          <View className="">
-            {blockData.map((block, index) => (
-              <Block
-                key={index}
-                title={block.title}
-                value={block.value}
-                percentage={block.percentage}
-                showPercentage={block.percentage !== undefined}
-              />
-            ))}
-          </View>
-        </ScrollView>
-      </>
+      <HeaderBar title="Home" />
       <ScrollView className="flex-1 bg-gray-dark">
         {/* Greeting section */}
         <View className="px-4 py-4">
