@@ -2,11 +2,24 @@ import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import login from "../../register/login";
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [wrongCredentials, setWrongCredentials] = useState(false);
+
+  const handleLogin = async () => {
+    try {
+      const userCredential = await login(email, password);
+      console.log(userCredential.user);
+      router.push("../../(tabs)/home");
+    } catch (error) {
+      console.error("Login failed:", error);
+      setWrongCredentials(true);
+    }
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-gray-dark">
@@ -45,17 +58,27 @@ const Login = () => {
               secureTextEntry
             />
           </View>
+          {wrongCredentials && (
+            <View className="mb-6 items-center justify-center">
+              <Text className="text-red-500 font-pmedium text-center">
+                Wrong credentails :(
+              </Text>
+            </View>
+          )}
 
           <TouchableOpacity
             className="bg-blue rounded-lg py-4 items-center"
-            onPress={() => router.push("/(tabs)/home")}
+            onPress={() => {
+              console.log(email, password);
+              handleLogin();
+            }}
           >
             <Text className="text-white font-pmedium text-base">Sign In</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             className="mt-4 items-center"
-            onPress={() => router.push("/Register/register")}
+            onPress={() => router.push("./register")}
           >
             <Text className="text-gray-light font-pregular">
               Don't have an account?{" "}

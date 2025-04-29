@@ -82,7 +82,7 @@ const Register = () => {
 
           <TouchableOpacity
             className="mt-4 items-center"
-            onPress={() => router.push("/Register/login")}
+            onPress={() => router.push("./login")}
           >
             <Text className="text-gray-light font-pregular">
               Already have an account?{" "}
