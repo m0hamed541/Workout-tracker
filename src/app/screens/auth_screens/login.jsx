@@ -1,23 +1,30 @@
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
-import React, { useState } from "react";
-import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import login from "../../register/login";
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../global/initFireBase';
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [wrongCredentials, setWrongCredentials] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please fill in all fields');
+      return;
+    }
+
     try {
-      const userCredential = await login(email, password);
-      console.log(userCredential.user);
-      router.push("../../(tabs)/home");
+      setLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
+      router.replace('/(tabs)/home');
     } catch (error) {
-      console.error("Login failed:", error);
-      setWrongCredentials(true);
+      Alert.alert('Error', error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,31 +65,24 @@ const Login = () => {
               secureTextEntry
             />
           </View>
-          {wrongCredentials && (
-            <View className="mb-6 items-center justify-center">
-              <Text className="text-red-500 font-pmedium text-center">
-                Wrong credentails :(
-              </Text>
-            </View>
-          )}
 
           <TouchableOpacity
-            className="bg-blue rounded-lg py-4 items-center"
-            onPress={() => {
-              console.log(email, password);
-              handleLogin();
-            }}
+            className="bg-blue-DEFAULT rounded-lg py-4 items-center"
+            onPress={handleLogin}
+            disabled={loading}
           >
-            <Text className="text-white font-pmedium text-base">Sign In</Text>
+            <Text className="text-white font-pmedium text-base">
+              {loading ? 'Signing in...' : 'Sign In'}
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             className="mt-4 items-center"
-            onPress={() => router.push("./register")}
+            onPress={() => router.push('/screens/auth_screens/register')}
           >
             <Text className="text-gray-light font-pregular">
-              Don't have an account?{" "}
-              <Text className="text-blue font-pmedium">Sign Up</Text>
+              Don't have an account?{' '}
+              <Text className="text-blue-DEFAULT font-pmedium">Sign Up</Text>
             </Text>
           </TouchableOpacity>
         </View>
