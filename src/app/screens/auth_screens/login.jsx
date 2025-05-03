@@ -1,28 +1,28 @@
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
-import React, { useState } from 'react';
-import { useRouter } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../global/initFireBase';
+import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
+import React, { useState } from "react";
+import { useRouter } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../global/initFireBase";
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert('Error', 'Please fill in all fields');
+      Alert.alert("Error", "Please fill in all fields");
       return;
     }
 
     try {
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
-      router.replace('/(tabs)/home');
+      router.replace("/(tabs)/home");
     } catch (error) {
-      Alert.alert('Error', error.message);
+      Alert.alert("Error", error.message);
     } finally {
       setLoading(false);
     }
@@ -67,22 +67,22 @@ const Login = () => {
           </View>
 
           <TouchableOpacity
-            className="bg-blue-DEFAULT rounded-lg py-4 items-center"
+            className="bg-blue rounded-lg py-4 items-center"
             onPress={handleLogin}
             disabled={loading}
           >
             <Text className="text-white font-pmedium text-base">
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? "Signing in..." : "Sign In"}
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             className="mt-4 items-center"
-            onPress={() => router.push('/screens/auth_screens/register')}
+            onPress={() => router.push("/screens/auth_screens/register")}
           >
             <Text className="text-gray-light font-pregular">
-              Don't have an account?{' '}
-              <Text className="text-blue-DEFAULT font-pmedium">Sign Up</Text>
+              Don't have an account?{" "}
+              <Text className="text-blue font-pmedium">Sign Up</Text>
             </Text>
           </TouchableOpacity>
         </View>
