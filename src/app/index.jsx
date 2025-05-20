@@ -7,7 +7,7 @@ export default function Index() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.replace("./screens/auth_screens/login");
+      router.replace("./(tabs)/dashboard");
     }, 0);
 
     return () => clearTimeout(timeout);

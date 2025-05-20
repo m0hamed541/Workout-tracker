@@ -11,7 +11,7 @@ A simple mobile application for logging workouts and tracking progress, inspired
 ### Screens
 - homes
 - dashboard
-- exercices
+- exercises
 - routines
 
 

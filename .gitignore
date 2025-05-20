@@ -2,7 +2,7 @@
 expo-env.d.ts
 /node_modules
 /.expo
-
+/assets
 /test
 
 tree

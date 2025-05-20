@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const ExerciceTitle = ({ title }) => {
+const ExerciseTitle = ({ title }) => {
   return (
     <View className="flex-row items-center justify-between">
       <Icon name="barbell" size={24} color="white" />
@@ -14,4 +14,4 @@ const ExerciceTitle = ({ title }) => {
   );
 };
 
-export default ExerciceTitle;
+export default ExerciseTitle;

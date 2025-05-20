@@ -57,9 +57,9 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="exercices"
+          name="exercises"
           options={{
-            title: "Exercices",
+            title: "Exercises",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon

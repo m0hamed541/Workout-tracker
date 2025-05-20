@@ -7,7 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import ExerciceTitle from "./ExerciceTitle";
+import ExerciseTitle from "./ExerciseTitle";
 import exercises from "../../test/dummydata";
 
 const ExerciseBlock = ({ id }) => {
@@ -75,7 +75,7 @@ const ExerciseBlock = ({ id }) => {
 
   return (
     <View className="p-4">
-      <ExerciceTitle title={title} />
+      <ExerciseTitle title={title} />
 
       <FlatList
         data={sets}
