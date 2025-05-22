@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "expo-router";
-import { firebaseApp } from "./global/initFireBase";
+import { auth } from "./global/initFireBase";
+
 export default function Index() {
-  firebaseApp;
   const router = useRouter();
 
   useEffect(() => {

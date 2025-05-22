@@ -1,4 +1,5 @@
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 import app from "../global/initFireBase";
 
 const db = getFirestore(app);
